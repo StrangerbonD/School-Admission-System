@@ -1,0 +1,8 @@
+FROM mcr.microsoft.com/dotnet/sdk:10.0 AS test
+WORKDIR /app
+
+COPY . .
+
+RUN dotnet restore SchoolAdmission.slnx
+
+ENTRYPOINT ["dotnet", "test", "SchoolAdmission.Tests/SchoolAdmission.Tests.csproj", "--no-restore"]
